@@ -1,10 +1,17 @@
 fn main() {
-    let x: i32 = 10;
-    let y = 20;
-    let z = mul(x, y);
-    println!("z = {z}");
+    println!("short-circuit evaluation");
+    println!("{}", a() && b());
+
+    println!("non-short-circuit evaluation");
+    println!("{}", a() & b());
 }
 
-fn mul(x: i32, y: i32) -> i32 {
-    x * y
+fn a() -> bool {
+    println!("call a");
+    false
+}
+
+fn b() -> bool {
+    println!("call b");
+    false
 }
