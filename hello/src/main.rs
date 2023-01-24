@@ -1,27 +1,5 @@
-fn main() {
-    // raw string
-    let s1: &str = r"abc
-    def
-    ghi";
-    println!("{s1}");
+fn main() {}
 
-    let s2: &str = r#"abc
-    def
-    ghi"#;
-    println!("{s2}");
+fn func1() -> () {}
 
-    let s3: &str = r##"abc
-    "#def#"
-    ghi"##;
-    println!("{s3}");
-
-    //     abc
-    //     def
-    //     ghi
-    // abc
-    //     def
-    //     ghi
-    // abc
-    //     "#def#"
-    //     ghi
-}
+fn func2() {}
