@@ -1,13 +1,13 @@
 fn main() {
-    let mut n: u64 = 100;
+    let arr: [u32; 4] = [1, 2, 3, 4];
+    println!("{}, {}, {}, {}", arr[0], arr[1], arr[2], arr[3]);
 
-    let a: &u64 = &n;
-    // *a = 200;
-    println!("*a = {}, addr = {:p}", *a, a);
+    let s: &[u32] = &arr[1..3];
+    println!("s = {:?}, s[0] = {}", s, s[0]);
 
-    let b: &mut u64 = &mut n;
-    *b = 300;
-    println!("*b = {}, addr = {:p}", *b, b);
+    // arr[10] -> compile error (static analysis)
+    // s[10] -> panic (dynamic analysis)
 
-    println!("n = {n}, addr = {:p}", &n);
+    let arr2: [u32; 5] = [3; 5];
+    println!("{:?}", arr2);
 }
