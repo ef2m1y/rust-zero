@@ -1,17 +1,11 @@
 fn main() {
-    println!("short-circuit evaluation");
-    println!("{}", a() && b());
-
-    println!("non-short-circuit evaluation");
-    println!("{}", a() & b());
+    println!("XOR");
+    println!("t^t: {}", xor(true, true));
+    println!("t^f: {}", xor(true, false));
+    println!("f^t: {}", xor(false, true));
+    println!("f^f: {}", xor(false, false));
 }
 
-fn a() -> bool {
-    println!("call a");
-    false
-}
-
-fn b() -> bool {
-    println!("call b");
-    false
+fn xor(x: bool, y: bool) -> bool {
+    x ^ y
 }
