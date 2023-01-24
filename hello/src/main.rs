@@ -1,10 +1,27 @@
 fn main() {
-    let a: &str = " Hello";
-    // a += ", world!";
+    // raw string
+    let s1: &str = r"abc
+    def
+    ghi";
+    println!("{s1}");
 
-    let mut b: String = a.to_string();
-    b += ", world!  ";
-    
-    let c: &str = b.trim();
-    println!("{c}");
+    let s2: &str = r#"abc
+    def
+    ghi"#;
+    println!("{s2}");
+
+    let s3: &str = r##"abc
+    "#def#"
+    ghi"##;
+    println!("{s3}");
+
+    //     abc
+    //     def
+    //     ghi
+    // abc
+    //     def
+    //     ghi
+    // abc
+    //     "#def#"
+    //     ghi
 }
