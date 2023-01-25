@@ -1,13 +1,12 @@
 fn main() {
-    fn sumup_while(mut n: u64) -> u64 {
+    fn sumup_for(n: u64) -> u64 {
         let mut sum: u64 = 0;
-        while n > 0 {
-            sum += n;
-            n -= 1;
+        for i in 0..=n {
+            sum += i;
         }
         sum
     }
 
-    println!("{}", sumup_while(10));
-    println!("{}", sumup_while(100));
+    println!("{}", sumup_for(10));
+    println!("{}", sumup_for(100));
 }
