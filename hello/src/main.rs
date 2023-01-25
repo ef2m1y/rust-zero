@@ -1,13 +1,16 @@
 fn main() {
-    fn sumup(n: u64) -> u64 {
-        if n == 0 {
-            0
-        } else {
-            n + sumup(n - 1)
+    fn sumup_loop(mut n: u64) -> u64 {
+        let mut sum: u64 = 0;
+        loop {
+            if n == 0 {
+                break;
+            }
+            sum += n;
+            n -= 1;
         }
+        sum
     }
-    // if式のボディ部分の型が異なるとcompile error
 
-    println!("{}", sumup(10));
-    println!("{}", sumup(100));
+    println!("{}", sumup_loop(10));
+    println!("{}", sumup_loop(100));
 }
