@@ -1,17 +1,13 @@
-fn hello() {
-    struct Msg {
-        msg1: &'static str,
-        msg2: &'static str,
-    }
-
-    fn print_msg(msg: &Msg) {
-        println!("{}{}", msg.msg1, msg.msg2);
-    }
-
-    let msg = Msg { msg1: "Hello, ", msg2: "World!" };
-    print_msg(&msg);
-}
-
 fn main() {
-    hello();
+    // let a: u32;
+    // a + 5;
+    // -> compile error!
+
+    let n = 5;
+    {
+        let m = 10;
+        let l = n + m;
+    }
+    // let l = n + m;
+    // -> compile error!
 }
