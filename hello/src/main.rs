@@ -1,17 +1,19 @@
+// enum DoW {
+//     Sunday,
+//     Monday,
+//     Tuesday,
+//     Wednesday,
+//     Thursay,
+//     Friday,
+//     Saturday,
+// }
+
+enum Storage {
+    HDD { size: u32, rpm: u32 },
+    SSD(u32),
+}
+
 fn main() {
-    // function pointer type
-    print_it(add, 60, 717);
-    print_it(mul, 25, 25);
-}
-
-fn print_it(f: fn(u32, u32) -> u32, a: u32, b: u32) {
-    println!("{}", f(a, b));
-}
-
-fn add(a: u32, b: u32) -> u32 {
-    a + b
-}
-
-fn mul(a: u32, b: u32) -> u32 {
-    a * b
+    let hdd = Storage::HDD { size: 512, rpm: 7200 };
+    let ssd = Storage::SSD(512);
 }
