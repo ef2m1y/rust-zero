@@ -1,16 +1,11 @@
-fn main() {
-    let v = [1, 2, 4, 5, 6, 8, 9, 11];
-    let mut sum = 0;
-    // v.iter(): 配列の要素への不変参照
-    for x in v.iter() {
-        if *x % 2 == 0 {
-            // continueもラベルを付けることが可能
-            continue;
-        }
-        sum += *x;
-    }
-    println!("sum of odd numbers: {sum}");
+fn maybe_fail() -> Option<u32> {
+    Some(100)
+}
 
-    // for, whileはbreakとともに値を返す事は出来ない
-    // -> loopと異なり必ずしもbreakで終了するとは限らないため
+fn main() {
+    match maybe_fail() {
+        // matchは式 -> println!の返り値は()なので返す値の型を合わせる必要
+        Some(n) => println!("{n}"),
+        None => (),
+    }
 }
