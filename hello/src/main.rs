@@ -1,13 +1,12 @@
+fn maybe_fail() -> Option<u32> {
+    Some(100)
+}
 fn main() {
-    // let a: u32;
-    // a + 5;
-    // -> compile error!
-
-    let n = 5;
+    // shadowing
+    let res = maybe_fail();
     {
-        let m = 10;
-        let l = n + m;
+        let res = res.unwrap();
+        println!("{res}");
     }
-    // let l = n + m;
-    // -> compile error!
+    println!("{:?}", res);
 }
