@@ -1,8 +1,17 @@
-fn main() {
-    let n: i32 = 100;
-    let m: i64 = n as i64;
+fn hello() {
+    struct Msg {
+        msg1: &'static str,
+        msg2: &'static str,
+    }
 
-    let s: String = String::from("abcde");
-    let s: String = "abc".into();
-    let s: String = "abc".to_string();
+    fn print_msg(msg: &Msg) {
+        println!("{}{}", msg.msg1, msg.msg2);
+    }
+
+    let msg = Msg { msg1: "Hello, ", msg2: "World!" };
+    print_msg(&msg);
+}
+
+fn main() {
+    hello();
 }
