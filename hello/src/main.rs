@@ -1,8 +1,7 @@
 fn main() {
-    make_pair::<u8, bool>(10, true);
-    make_pair(20, false);
+    let buf = Buffer::<128> { buf: [0; 128] };
 }
 
-fn make_pair<T1, T2>(a: T1, b: T2) -> (T1, T2) {
-    (a, b)
+struct Buffer<const S: usize> {
+    buf: [u8; S],
 }
