@@ -1,12 +1,13 @@
-fn maybe_fail() -> Option<u32> {
-    Some(100)
-}
 fn main() {
-    // shadowing
-    let res = maybe_fail();
-    {
-        let res = res.unwrap();
-        println!("{res}");
+    fn sumup(n: u64) -> u64 {
+        if n == 0 {
+            0
+        } else {
+            n + sumup(n - 1)
+        }
     }
-    println!("{:?}", res);
+    // if式のボディ部分の型が異なるとcompile error
+
+    println!("{}", sumup(10));
+    println!("{}", sumup(100));
 }
