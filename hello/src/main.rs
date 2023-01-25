@@ -3,12 +3,11 @@ fn main() {
         let mut sum: u64 = 0;
         loop {
             if n == 0 {
-                break;
+                break sum;
             }
             sum += n;
             n -= 1;
         }
-        sum
     }
 
     println!("{}", sumup_loop(10));
