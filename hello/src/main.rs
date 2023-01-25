@@ -1,28 +1,16 @@
-enum Storage {
-    HDD { size: u32, rpm: u32 },
-    SSD(u32),
+enum List<T> {
+    Node { data: T, next: Box<List<T>> },
+    Nil,
 }
-
-struct PCSpec {
-    cpus: u16,
-    memory: u32,
-    storage: Storage,
-}
-
-struct Dim2(u32, u32);
 
 fn main() {
-    let spec = PCSpec {
-        cpus: 8,
-        memory: 16,
-        storage: Storage::SSD(1024),
+    let n1 = List::<u32>::Nil;
+    let n2 = List::<u32>::Node {
+        data: 10,
+        next: Box::<List<u32>>::new(n1),
     };
-    println!("{}", spec.cpus);
-
-    let d2 = Dim2(10, 20);
-    println!("{}", d2.0);
-
-    let r = &spec;
-    println!("{}", (*r).cpus);
-    println!("{}", r.cpus); // auto dereference
+    let n3 = List::Node {
+        data: 40,
+        next: Box::new(n2),
+    };
 }
