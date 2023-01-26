@@ -1,18 +1,13 @@
-fn average(v: &[f32]) -> Option<f32> {
-    if v.is_empty() {
-        return None;
-    }
+fn maybe_fail() -> Option<u32> {
+    Some(100)
+}
 
-    let mut sum = 0.0;
-    for x in v {
-        sum += x;
-    }
-
-    Some(sum / v.len() as f32)
+fn use_maybe_fail() -> Option<u32> {
+    let n = maybe_fail()?;
+    Some(n)
 }
 
 fn main() {
-    let arr = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0];
-    let res = average(&arr[..]);
-    println!("{:?}", res);
+    // let n = maybe_fail()?; // error
+    println!("{}", use_maybe_fail().unwrap());
 }
