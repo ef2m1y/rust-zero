@@ -1,11 +1,39 @@
-fn maybe_fail() -> Option<u32> {
-    Some(100)
+enum Storage {
+    HDD { size: u32, rpm: u32 },
+    SSD(u32),
+}
+
+struct PCSpec {
+    cpus: u16,
+    memory: u32,
+    storage: Storage,
 }
 
 fn main() {
-    match maybe_fail() {
-        // matchは式 -> println!の返り値は()なので返す値の型を合わせる必要
-        Some(n) => println!("{n}"),
-        None => (),
+    let spec = PCSpec {
+        cpus: 8,
+        memory: 16,
+        storage: Storage::SSD(1024),
+    };
+
+    match &spec {
+        PCSpec {
+            storage: Storage::SSD(512),
+            ..
+        } => {
+            println!("512GiB SSD");
+        }
+        PCSpec {
+            cpus: 4 | 8,
+            memory: m,
+            storage: _,
+        } => {
+            println!("4 or 8 CPUs");
+            println!("{}GiB memory", *m);
+        }
+        PCSpec { memory: m, .. } if *m < 4 => {
+            println!("less than 4GiB memory")
+        }
+        _ => (),
     }
 }
